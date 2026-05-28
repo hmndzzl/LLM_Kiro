@@ -1,0 +1,13 @@
+{
+  "name": "taco-business-page",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "jest-axe": "^10.0.0",
+    "jsdom": "^24.1.0",
+    "vitest": "^1.6.0"
+  }
+}
