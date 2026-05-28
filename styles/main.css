@@ -1,0 +1,148 @@
+/* ==========================================================================
+   main.css — Global styles and CSS custom properties (design tokens)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Design Tokens
+   -------------------------------------------------------------------------- */
+:root {
+  /* Colors */
+  --color-primary:     #C0392B;  /* Deep red — brand accent */
+  --color-secondary:   #B85C00;  /* Warm orange — secondary accent (darkened from #E67E22 for WCAG AA 4.5:1 contrast with white text) */
+  --color-bg:          #FDFAF5;  /* Off-white — page background */
+  --color-text:        #1A1A1A;  /* Near-black — body text */
+  --color-text-light:  #FFFFFF;  /* White — text on dark backgrounds */
+  --color-surface:     #FFFFFF;  /* Card backgrounds */
+  --color-overlay:     rgba(0, 0, 0, 0.55); /* Hero image overlay */
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-size-base: 1rem; /* 16px */
+
+  /* Spacing */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  2rem;
+  --space-lg:  4rem;
+  --space-xl:  8rem;
+
+  /* Breakpoints (reference values — used in media queries) */
+  --bp-mobile:  320px;
+  --bp-tablet:  768px;
+  --bp-desktop: 1200px;
+}
+
+/* --------------------------------------------------------------------------
+   Reset & Base
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: var(--font-size-base);
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-width: var(--bp-mobile);
+}
+
+/* --------------------------------------------------------------------------
+   Typography
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Utility
+   -------------------------------------------------------------------------- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+  background-color: var(--color-text); /* #1A1A1A near-black */
+  color: var(--color-text-light);
+  padding: var(--space-md) var(--space-sm);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.footer-copyright {
+  font-size: 0.875rem;
+  opacity: 0.75;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap: var(--space-md);
+}
+
+.footer-links a {
+  color: var(--color-text-light);
+  font-size: 0.875rem;
+  transition: text-decoration 0.2s;
+}
+
+.footer-links a:hover,
+.footer-links a:focus {
+  text-decoration: underline;
+}
+
+/* Mobile: stack vertically and center */
+@media (max-width: 767px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+}

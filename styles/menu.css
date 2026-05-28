@@ -1,0 +1,115 @@
+/* ==========================================================================
+   menu.css — Menu section and Taco Card styles
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Shared Section Container
+   Used by menu, about, contact, and footer sections for consistent max-width
+   and horizontal padding. Defined here as the first section to use it.
+   -------------------------------------------------------------------------- */
+.section-container {
+  max-width: var(--bp-desktop);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* --------------------------------------------------------------------------
+   Menu Section
+   -------------------------------------------------------------------------- */
+#menu {
+  padding: var(--space-lg) 0;
+  background-color: var(--color-bg);
+}
+
+#menu h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-text);
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+/* --------------------------------------------------------------------------
+   Menu Grid — 2 columns on desktop, 1 column on mobile
+   -------------------------------------------------------------------------- */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+/* --------------------------------------------------------------------------
+   Taco Card
+   -------------------------------------------------------------------------- */
+.taco-card {
+  background-color: var(--color-surface);
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.taco-card:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   Card Image
+   -------------------------------------------------------------------------- */
+.taco-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Card Body (text content)
+   -------------------------------------------------------------------------- */
+.taco-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--color-text);
+  padding: var(--space-sm) var(--space-sm) var(--space-xs);
+  line-height: 1.2;
+}
+
+.taco-card p {
+  font-family: var(--font-body);
+  font-size: 0.9375rem; /* 15px */
+  color: var(--color-text);
+  line-height: 1.6;
+  padding: 0 var(--space-sm);
+  flex: 1; /* push price to the bottom */
+}
+
+/* --------------------------------------------------------------------------
+   Taco Price
+   -------------------------------------------------------------------------- */
+.taco-price {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  padding: var(--space-sm);
+  margin-top: var(--space-xs);
+}
+
+/* ==========================================================================
+   Responsive — single column on mobile (< 768px)
+   ========================================================================== */
+@media (max-width: 767px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #menu {
+    padding: var(--space-md) 0;
+  }
+}

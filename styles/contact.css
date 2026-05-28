@@ -1,0 +1,183 @@
+/* ==========================================================================
+   contact.css — Contact / Find Us section styles
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Contact Section
+   Uses --color-bg (off-white) to alternate visually from the about section's
+   white (--color-surface) background.
+   -------------------------------------------------------------------------- */
+#contact {
+  padding: var(--space-lg) 0;
+  background-color: var(--color-bg);
+}
+
+/* --------------------------------------------------------------------------
+   Section Heading
+   -------------------------------------------------------------------------- */
+#contact-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-text);
+  text-align: center;
+  margin-bottom: var(--space-md);
+  line-height: 1.2;
+}
+
+/* --------------------------------------------------------------------------
+   Contact Layout — info column (address, phone, hours)
+   -------------------------------------------------------------------------- */
+.contact-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Address
+   Override browser default italic style for <address>.
+   -------------------------------------------------------------------------- */
+.contact-info address {
+  font-style: normal;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   Phone Link
+   -------------------------------------------------------------------------- */
+.contact-info a[href^="tel"] {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-info a[href^="tel"]:hover,
+.contact-info a[href^="tel"]:focus {
+  color: var(--color-secondary);
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   Hours Sub-heading
+   -------------------------------------------------------------------------- */
+.contact-info h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-xs);
+  line-height: 1.2;
+}
+
+/* --------------------------------------------------------------------------
+   Hours List — <dl> displayed as a 2-column grid (day | hours)
+   -------------------------------------------------------------------------- */
+.hours-list {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: var(--space-md);
+  row-gap: var(--space-xs);
+  font-family: var(--font-body);
+  font-size: 0.9375rem; /* 15px */
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.hours-list dt {
+  font-weight: 600;
+  /* dt occupies column 1 */
+}
+
+.hours-list dd {
+  margin: 0; /* reset browser default left margin */
+  /* dd occupies column 2 */
+}
+
+/* --------------------------------------------------------------------------
+   Map Embed (optional <iframe>)
+   -------------------------------------------------------------------------- */
+.contact-map {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 8px;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Social Links — flex row of styled link buttons
+   -------------------------------------------------------------------------- */
+.contact-social {
+  margin-top: var(--space-md);
+  text-align: center;
+}
+
+.social-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: 0;
+  margin: 0;
+}
+
+.social-links a {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  background-color: var(--color-primary);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.social-links a:hover,
+.social-links a:focus {
+  background-color: var(--color-secondary);
+  transform: translateY(-1px);
+}
+
+.social-links a:focus {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Responsive — mobile adjustments (< 768px)
+   ========================================================================== */
+@media (max-width: 767px) {
+  #contact {
+    padding: var(--space-md) 0;
+  }
+
+  #contact-heading {
+    margin-bottom: var(--space-sm);
+  }
+
+  .hours-list {
+    column-gap: var(--space-sm);
+    font-size: 0.875rem; /* 14px — stays legible at small viewports */
+  }
+
+  .social-links a {
+    padding: var(--space-xs) var(--space-sm);
+  }
+}

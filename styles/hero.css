@@ -1,0 +1,103 @@
+/* ==========================================================================
+   hero.css — Hero section styles
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Hero Section
+   -------------------------------------------------------------------------- */
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  /* Layered background: dark overlay on top of the hero image */
+  background-image:
+    linear-gradient(var(--color-overlay), var(--color-overlay)),
+    url('../assets/images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Ensure the hero sits behind the fixed nav */
+  padding-top: 4rem; /* account for fixed nav height */
+}
+
+/* --------------------------------------------------------------------------
+   Hero Content Container
+   -------------------------------------------------------------------------- */
+.hero-content {
+  max-width: 720px;
+  padding: var(--space-md) var(--space-sm);
+  color: var(--color-text-light);
+}
+
+/* --------------------------------------------------------------------------
+   Hero Heading (h1)
+   -------------------------------------------------------------------------- */
+.hero-content h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-sm);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   Hero Tagline
+   -------------------------------------------------------------------------- */
+.hero-tagline {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2.5vw, 1.375rem);
+  font-weight: 400;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-lg);
+  opacity: 0.92;
+  letter-spacing: 0.02em;
+}
+
+/* --------------------------------------------------------------------------
+   CTA Button
+   -------------------------------------------------------------------------- */
+.hero-cta {
+  display: inline-block;
+  background-color: var(--color-secondary);
+  color: var(--color-text-light);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 3px;
+  border: 2px solid transparent;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.hero-cta:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text-light);
+  transform: translateY(-2px);
+}
+
+.hero-cta:focus-visible {
+  outline: 3px solid var(--color-text-light);
+  outline-offset: 4px;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.hero-cta:active {
+  transform: translateY(0);
+}

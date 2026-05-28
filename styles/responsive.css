@@ -1,0 +1,161 @@
+/* ==========================================================================
+   responsive.css — Cross-cutting responsive styles and global breakpoint rules
+   
+   This file handles global/layout-level responsive concerns that span multiple
+   sections. Component-specific breakpoints (nav, menu, about, contact) are
+   already defined in their respective CSS files. This file supplements those
+   with:
+     - Global text legibility at the minimum supported viewport (320px)
+     - Section container padding adjustments at small viewports
+     - Layout reinforcement for very small (320px) and very large (1920px) viewports
+   
+   Breakpoints:
+     < 768px  — mobile (single-column, hamburger nav)
+     ≥ 768px  — tablet/desktop (multi-column, full nav)
+     ≥ 1200px — wide desktop (max-width container constrains layout)
+     ≥ 1920px — very large screens (prevent over-stretching)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Mobile — viewport < 768px
+   Reinforces and supplements component-level mobile rules.
+   ========================================================================== */
+@media (max-width: 767px) {
+
+  /* --------------------------------------------------------------------------
+     Global text legibility
+     Ensure base font size never drops below 14px on small viewports.
+     The html element uses 1rem (16px) by default; this guard prevents any
+     browser or user-agent override from going below 14px.
+     -------------------------------------------------------------------------- */
+  html {
+    font-size: max(0.875rem, 14px); /* 14px minimum */
+  }
+
+  /* --------------------------------------------------------------------------
+     Section container — reduce horizontal padding on narrow viewports
+     so content doesn't feel cramped at 320px.
+     -------------------------------------------------------------------------- */
+  .section-container {
+    padding-left: var(--space-sm);  /* 1rem (16px) instead of 2rem */
+    padding-right: var(--space-sm);
+  }
+
+  /* --------------------------------------------------------------------------
+     Navigation — reinforce hamburger visibility (already in nav.css).
+     Ensures .nav-hamburger is never accidentally hidden by a cascade conflict.
+     -------------------------------------------------------------------------- */
+  .nav-hamburger {
+    display: flex;
+  }
+
+  /* --------------------------------------------------------------------------
+     Menu grid — reinforce single-column layout (already in menu.css).
+     Ensures .menu-grid is never accidentally set to multi-column by cascade.
+     -------------------------------------------------------------------------- */
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* --------------------------------------------------------------------------
+     About layout — reinforce stacked single-column (already in about.css).
+     -------------------------------------------------------------------------- */
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* ==========================================================================
+   Very small viewports — 320px minimum
+   Extra adjustments to keep content readable at the narrowest supported width.
+   ========================================================================== */
+@media (max-width: 374px) {
+
+  /* Tighten nav padding so logo and hamburger fit at 320px */
+  #main-nav {
+    padding-left: var(--space-xs);
+    padding-right: var(--space-xs);
+  }
+
+  /* Reduce section container padding to the minimum at 320px */
+  .section-container {
+    padding-left: var(--space-xs);  /* 0.5rem (8px) */
+    padding-right: var(--space-xs);
+  }
+
+  /* Ensure taco card text stays legible — 14px floor */
+  .taco-card p,
+  .taco-card h3 {
+    font-size: max(0.875rem, 14px);
+  }
+
+  /* Ensure contact hours text stays legible */
+  .hours-list {
+    font-size: max(0.875rem, 14px);
+  }
+
+}
+
+
+/* ==========================================================================
+   Tablet and above — viewport ≥ 768px
+   Reinforce multi-column layouts and full navigation link list.
+   ========================================================================== */
+@media (min-width: 768px) {
+
+  /* --------------------------------------------------------------------------
+     Navigation — reinforce full link list visibility.
+     Ensures .nav-links is always shown as a flex row on tablet/desktop,
+     and the hamburger button is always hidden.
+     -------------------------------------------------------------------------- */
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    max-height: none;
+    overflow: visible;
+    position: static;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .nav-hamburger {
+    display: none;
+  }
+
+  /* --------------------------------------------------------------------------
+     Menu grid — reinforce two-column layout (already in menu.css default).
+     -------------------------------------------------------------------------- */
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* --------------------------------------------------------------------------
+     About layout — reinforce side-by-side two-column layout.
+     -------------------------------------------------------------------------- */
+  .about-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+
+/* ==========================================================================
+   Very large viewports — ≥ 1920px
+   Prevent content from stretching too wide on ultra-wide displays.
+   ========================================================================== */
+@media (min-width: 1920px) {
+
+  /* Cap the section container width so lines don't become unreadably long */
+  .section-container {
+    max-width: 1400px;
+  }
+
+  /* Ensure base font size scales slightly for large screens for readability */
+  html {
+    font-size: 1.0625rem; /* 17px — subtle bump for very large displays */
+  }
+
+}

@@ -1,0 +1,230 @@
+/* ==========================================================================
+   nav.css — Fixed navigation bar styles
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Header & Nav Container
+   -------------------------------------------------------------------------- */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: var(--color-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+#main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--bp-desktop);
+  margin: 0 auto;
+  padding: var(--space-xs) var(--space-md);
+  gap: var(--space-md);
+}
+
+/* --------------------------------------------------------------------------
+   Logo / Restaurant Name
+   -------------------------------------------------------------------------- */
+.nav-logo {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.nav-logo:hover,
+.nav-logo:focus-visible {
+  color: var(--color-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Nav Links List (desktop)
+   -------------------------------------------------------------------------- */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Individual Nav Links
+   -------------------------------------------------------------------------- */
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: none;
+  padding: var(--space-xs) 0;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+/* Animated underline on hover / focus */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--color-primary);
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Active link state (set by IntersectionObserver in main.js) */
+.nav-link.active {
+  color: var(--color-primary);
+}
+
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* --------------------------------------------------------------------------
+   Focus styles (keyboard accessibility)
+   -------------------------------------------------------------------------- */
+.nav-logo:focus-visible,
+.nav-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Hamburger button — hidden on desktop, shown in responsive.css
+   -------------------------------------------------------------------------- */
+.nav-hamburger {
+  display: none;
+}
+
+/* ==========================================================================
+   Mobile Navigation — viewport < 768px
+   ========================================================================== */
+@media (max-width: 767px) {
+
+  /* -------------------------------------------------------------------------
+     Hamburger button — visible on mobile
+     ------------------------------------------------------------------------- */
+  .nav-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 2.5rem;   /* 40px */
+    height: 2.5rem;  /* 40px */
+    padding: 0.375rem;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease;
+  }
+
+  .nav-hamburger:hover,
+  .nav-hamburger:focus-visible {
+    background-color: rgba(0, 0, 0, 0.06);
+  }
+
+  .nav-hamburger:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  /* The three bars */
+  .hamburger-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--color-text);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  /* -------------------------------------------------------------------------
+     Nav links list — hidden by default on mobile
+     ------------------------------------------------------------------------- */
+  .nav-links {
+    /* Override desktop flex layout */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+
+    /* Position as a dropdown below the fixed header */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-bg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0;
+
+    /* Hidden state: collapse via max-height + overflow */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+
+  .nav-links li {
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .nav-link {
+    display: block;
+    padding: var(--space-sm) var(--space-md);
+    font-size: 1rem;
+  }
+
+  /* Underline animation not needed in stacked mobile layout */
+  .nav-link::after {
+    display: none;
+  }
+
+  /* -------------------------------------------------------------------------
+     .nav-open — show the link list
+     ------------------------------------------------------------------------- */
+  #main-nav.nav-open .nav-links {
+    max-height: 20rem; /* tall enough for 3 links */
+    padding: var(--space-xs) 0;
+  }
+
+  /* Animate hamburger bars into an X when open */
+  #main-nav.nav-open .hamburger-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  #main-nav.nav-open .hamburger-bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  #main-nav.nav-open .hamburger-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+}
