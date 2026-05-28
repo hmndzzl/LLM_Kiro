@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taquería El Sabor — Carnitas &amp; Al Pastor</title>
+    <meta name="description" content="Taquería El Sabor — authentic tacos de carnitas and tacos al pastor, cooked the traditional way." />
+
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts: Playfair Display + Inter -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Preload hero background image for above-the-fold performance -->
+    <link
+      rel="preload"
+      as="image"
+      href="assets/images/hero-bg.jpg"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/nav.css" />
+    <link rel="stylesheet" href="styles/hero.css" />
+    <link rel="stylesheet" href="styles/menu.css" />
+    <link rel="stylesheet" href="styles/about.css" />
+    <link rel="stylesheet" href="styles/contact.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
+  </head>
+  <body>
+
+    <!-- =====================================================================
+         Navigation Bar (fixed)
+         ===================================================================== -->
+    <header>
+      <nav id="main-nav" aria-label="Main navigation">
+        <a href="#hero" class="nav-logo" aria-label="Taquería El Sabor — home">
+          Taquería El Sabor
+        </a>
+
+        <button
+          class="nav-hamburger"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+
+        <ul id="nav-links" class="nav-links" role="list">
+          <li><a href="#menu" class="nav-link">Menu</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- =====================================================================
+         Main Content
+         ===================================================================== -->
+    <main>
+
+      <!-- Hero Section -->
+      <section id="hero" aria-labelledby="hero-heading">
+        <div class="hero-content">
+          <h1 id="hero-heading">Taquería El Sabor</h1>
+          <p class="hero-tagline">Carnitas &amp; Al Pastor — Cooked the Traditional Way</p>
+          <a href="#menu" class="hero-cta">View Our Menu</a>
+        </div>
+      </section>
+
+      <!-- Menu Section -->
+      <section id="menu" aria-labelledby="menu-heading">
+        <div class="section-container">
+          <h2 id="menu-heading">Our Menu</h2>
+          <div class="menu-grid">
+            <article class="taco-card">
+              <img
+                src="assets/images/carnitas.jpg"
+                alt="Two tacos de carnitas on a corn tortilla topped with onion and cilantro"
+                loading="lazy"
+              />
+              <h3>Tacos de Carnitas</h3>
+              <p>Slow-braised pork shoulder, cooked in its own fat until tender and golden. Served on a warm corn tortilla with onion, cilantro, and salsa verde.</p>
+              <span class="taco-price">$3.50</span>
+            </article>
+            <article class="taco-card">
+              <img
+                src="assets/images/pastor.jpg"
+                alt="Tacos al pastor with pineapple and cilantro on a corn tortilla"
+                loading="lazy"
+              />
+              <h3>Tacos al Pastor</h3>
+              <p>Marinated pork cooked on a vertical spit, sliced thin and served with pineapple, onion, cilantro, and salsa roja on a corn tortilla.</p>
+              <span class="taco-price">$3.50</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" aria-labelledby="about-heading">
+        <div class="section-container">
+          <div class="about-layout">
+            <div class="about-text">
+              <h2 id="about-heading">Our Story</h2>
+              <p>Taquería El Sabor was born from a family tradition rooted in the heart of Michoacán. Our carnitas recipe has been passed down through three generations — pork shoulder slow-braised for hours in its own fat, seasoned with orange, bay leaf, and a touch of cinnamon, until it reaches that perfect balance of crispy edges and melt-in-your-mouth tenderness.</p>
+              <p>Our tacos al pastor honor the Lebanese-Mexican tradition that transformed street food in Mexico City. We marinate pork overnight in a blend of dried chiles, achiote, and pineapple, then stack it on a vertical trompo and roast it low and slow. Every slice carries decades of culinary craft — and we wouldn't have it any other way.</p>
+            </div>
+            <div class="about-image">
+              <img
+                src="assets/images/about.jpg"
+                alt="Chef preparing tacos al pastor on a traditional vertical spit"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" aria-labelledby="contact-heading">
+        <div class="section-container">
+          <h2 id="contact-heading">Find Us</h2>
+          <div class="contact-layout">
+            <div class="contact-info">
+              <address>
+                123 Main Street, City, State 00000
+              </address>
+              <p>
+                <a href="tel:+15550000000">+1-555-000-0000</a>
+              </p>
+              <h3>Hours</h3>
+              <dl class="hours-list">
+                <dt>Monday</dt>
+                <dd>11:00 AM – 9:00 PM</dd>
+                <dt>Tuesday</dt>
+                <dd>11:00 AM – 9:00 PM</dd>
+                <dt>Wednesday</dt>
+                <dd>11:00 AM – 9:00 PM</dd>
+                <dt>Thursday</dt>
+                <dd>11:00 AM – 9:00 PM</dd>
+                <dt>Friday</dt>
+                <dd>11:00 AM – 10:00 PM</dd>
+                <dt>Saturday</dt>
+                <dd>10:00 AM – 10:00 PM</dd>
+                <dt>Sunday</dt>
+                <dd>10:00 AM – 8:00 PM</dd>
+              </dl>
+            </div>
+            <!-- Google Maps iframe omitted: mapsEmbedUrl is not set -->
+          </div>
+          <div class="contact-social">
+            <ul class="social-links" role="list">
+              <li>
+                <a href="https://instagram.com/example" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a href="https://facebook.com/example" target="_blank" rel="noopener noreferrer" aria-label="Like us on Facebook">
+                  Facebook
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- =====================================================================
+         Footer
+         ===================================================================== -->
+    <footer>
+      <div class="footer-container">
+        <p class="footer-copyright">
+          &copy; <span id="footer-year"></span> Taquería El Sabor. All rights reserved.
+        </p>
+        <nav aria-label="Footer navigation">
+          <ul class="footer-links" role="list">
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+
+    <!-- Main JavaScript (module) -->
+    <script type="module" src="scripts/main.js"></script>
+  </body>
+</html>
