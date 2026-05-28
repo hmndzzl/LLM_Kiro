@@ -1,0 +1,25 @@
+.env
+
+# Dependencies
+node_modules/
+
+# Build
+dist/
+build/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+CLAUDE.md
+.claude/
+
+# Temp
+*.tmp
+*.docx
