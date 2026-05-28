@@ -5,6 +5,14 @@
 A static, responsive single-page website for **Taquería El Sabor**, a taco restaurant specializing in tacos de carnitas (slow-braised pork) and tacos al pastor (spit-roasted marinated pork). The page serves as the restaurant's primary online presence, showcasing the menu, brand story, and contact information.
 
 ---
+<img width="1727" height="869" alt="image" src="https://github.com/user-attachments/assets/6dc1045d-c750-49ce-8211-fb673e344bc8" />
+
+<img width="1727" height="875" alt="image" src="https://github.com/user-attachments/assets/460f220e-c276-400f-b5ce-f125bcd2ac00" />
+
+<img width="1724" height="677" alt="image" src="https://github.com/user-attachments/assets/0a62838e-2a60-4e39-bca8-17ff9e3454a7" />
+
+<img width="1724" height="885" alt="image" src="https://github.com/user-attachments/assets/49a55a29-0e49-4740-9437-2088b63595e0" />
+
 
 ## About the Business
 
